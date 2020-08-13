@@ -1,9 +1,8 @@
 class Piece {
-    constructor(x, y, color, image) {
+    constructor(x, y, color) {
         this.x = x;
         this.y = y;
         this.color = color;
-        this.image = image;
     }
 
     getCurrentTile() {
@@ -17,11 +16,5 @@ class Piece {
         return [xTile, yTile];
     }
 
-    draw() {
-        let xPos = this.x + 5;
-        let yPos = this.y + 5;
-        let xSize = tileWidth * 0.75;
-        let ySize = tileHeight * 0.75;
-        image(this.image, xPos, yPos, xSize, ySize);
-    }
+    
 }

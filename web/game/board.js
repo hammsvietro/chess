@@ -2,7 +2,12 @@ class Board {
   constructor(width, height) {
 		this.width = width;
 		this.height = height;
+
+		//HARDCODED THIS WILL BE FETCHED FROM THE BACKEND
+		this.myPieceColor = 'black';
+		this.foePieceColor = 'white';
 	}
+	
 
 
 	/*
@@ -32,6 +37,8 @@ class Board {
 	newGame() { // create board and prosition pieces
 		let colored = false;
 
+		
+
 		for (let i = 0; i < width; i += width/8) {
 			for (let j = 0; j < height; j += height/8) {
 				if(colored) {
@@ -41,45 +48,55 @@ class Board {
 				}
 				rect(i, j, width / 8, height/8);
 
-				if(j === height * 1/8) { // 1/8 === 0.125 === second row
-					new Pawn(i,j,'black', blackPawnImg).draw();
-				}
-				if(j === height * 6/8) { // 6/8 === 0.75 === seventh row
-					new Pawn(i,j, 'white', whitePawnImg).draw();
-				}
-				if(j === 0) {
-					switch(i) {
-						case 0:
-							new Rook(i,j,'black', blackRookImg).draw();
-							break;
-						case width * 1/8:
-							new Knight(i,j,'black', blackKnightImg).draw();
-							break;
-						case width * 2/8:
-							new Bishop(i,j,'black', blackBishopImg).draw();
-							break;
-						case width * 3/8:
-							new Queen(i,j,'black', blackQueenImg).draw();
-							break;
-						case width * 4/8:
-							new King(i,j,'black', blackKingImg).draw();
-							break;
-						case width * 5/8:
-							new Bishop(i,j,'black', blackBishopImg).draw();
-							break;
-						case width * 6/8:
-							new Knight(i,j,'black', blackKnightImg).draw();
-							break;
-						case width * 7/8:
-							new Rook(i,j,'black', blackRookImg).draw();
-							break;
-					}
-				}
+				
 
 				colored = colored ? false : true;
 			}
 			colored = colored ? false : true;
 		}
+		this.placePieces();
+	}
+
+	placePieces() {
+		// DRAW FOE PIECES
+		new Rook(this.width * 0 / 8,this.height * 0 / 8,this.foePieceColor).draw();
+		new Knight(this.width * 1 / 8,this.height * 0 / 8,this.foePieceColor).draw();
+		new Bishop(this.width * 2 / 8,this.height * 0 / 8,this.foePieceColor).draw();
+		new Queen(this.width * 3 / 8,this.height * 0 / 8,this.foePieceColor).draw();
+		new King(this.width * 4 / 8,this.height * 0 / 8,this.foePieceColor).draw();
+		new Bishop(this.width * 5 / 8,this.height * 0 / 8,this.foePieceColor).draw();
+		new Knight(this.width * 6 / 8,this.height * 0 / 8,this.foePieceColor).draw();
+		new Rook(this.width * 7 / 8,this.height * 0 / 8,this.foePieceColor).draw();
+
+		new Pawn(this.width * 0 / 8,this.height * 1 / 8,this.foePieceColor).draw();
+		new Pawn(this.width * 1 / 8,this.height * 1 / 8,this.foePieceColor).draw();
+		new Pawn(this.width * 2 / 8,this.height * 1 / 8,this.foePieceColor).draw();
+		new Pawn(this.width * 3 / 8,this.height * 1 / 8,this.foePieceColor).draw();
+		new Pawn(this.width * 4 / 8,this.height * 1 / 8,this.foePieceColor).draw();
+		new Pawn(this.width * 5 / 8,this.height * 1 / 8,this.foePieceColor).draw();
+		new Pawn(this.width * 6 / 8,this.height * 1 / 8,this.foePieceColor).draw();
+		new Pawn(this.width * 7 / 8,this.height * 1 / 8,this.foePieceColor).draw();
+		
+
+		// DRAW MY PIECES
+		new Rook(this.width * 0 / 8,this.height * 7 / 8,this.myPieceColor).draw();
+		new Knight(this.width * 1 / 8,this.height * 7 / 8,this.myPieceColor).draw();
+		new Bishop(this.width * 2 / 8,this.height * 7 / 8,this.myPieceColor).draw();
+		new Queen(this.width * 3 / 8,this.height * 7 / 8,this.myPieceColor).draw();
+		new King(this.width * 4 / 8,this.height * 7 / 8,this.myPieceColor).draw();
+		new Bishop(this.width * 5 / 8,this.height * 7 / 8,this.myPieceColor).draw();
+		new Knight(this.width * 6 / 8,this.height * 7 / 8,this.myPieceColor).draw();
+		new Rook(this.width * 7 / 8,this.height * 7 / 8,this.myPieceColor).draw();
+
+		new Pawn(this.width * 0 / 8,this.height * 6 / 8,this.myPieceColor).draw();
+		new Pawn(this.width * 1 / 8,this.height * 6 / 8,this.myPieceColor).draw();
+		new Pawn(this.width * 2 / 8,this.height * 6 / 8,this.myPieceColor).draw();
+		new Pawn(this.width * 3 / 8,this.height * 6 / 8,this.myPieceColor).draw();
+		new Pawn(this.width * 4 / 8,this.height * 6 / 8,this.myPieceColor).draw();
+		new Pawn(this.width * 5 / 8,this.height * 6 / 8,this.myPieceColor).draw();
+		new Pawn(this.width * 6 / 8,this.height * 6 / 8,this.myPieceColor).draw();
+		new Pawn(this.width * 7 / 8,this.height * 6 / 8,this.myPieceColor).draw();
+		
 	}
 
 	getBoardSize() { // return width / height
