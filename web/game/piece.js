@@ -3,12 +3,13 @@ class Piece {
         this.x = x;
         this.y = y;
         this.color = color;
+        this.dragged = false;
     }
 
     getCurrentTile() {
         // Avoid tile from being 8
-        x = x === width ? x-- : x; 
-        y = y === height ? y-- : y;
+        this.x = this.x === width ? this.x-- : this.x; 
+        this.y = this.y === height ? this.y-- : this.y;
 
         let xTile = Math.floor(this.x/(width/8));
         let yTile = Math.floor(this.y/(height/8));
