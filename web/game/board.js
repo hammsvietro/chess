@@ -6,6 +6,9 @@ class Board {
 		//HARDCODED THIS WILL BE FETCHED FROM THE BACKEND
 		this.myPieceColor = 'black';
 		this.foePieceColor = 'white';
+		
+		this.foePieceSet = new PieceSet('foe', this.foePieceColor);
+		this.myPieceSet = new PieceSet('me', this.myPieceColor);
 	}
 	
 
@@ -58,44 +61,9 @@ class Board {
 	}
 
 	placePieces() {
-		// DRAW FOE PIECES
-		new Rook(this.width * 0 / 8,this.height * 0 / 8,this.foePieceColor).draw();
-		new Knight(this.width * 1 / 8,this.height * 0 / 8,this.foePieceColor).draw();
-		new Bishop(this.width * 2 / 8,this.height * 0 / 8,this.foePieceColor).draw();
-		new Queen(this.width * 3 / 8,this.height * 0 / 8,this.foePieceColor).draw();
-		new King(this.width * 4 / 8,this.height * 0 / 8,this.foePieceColor).draw();
-		new Bishop(this.width * 5 / 8,this.height * 0 / 8,this.foePieceColor).draw();
-		new Knight(this.width * 6 / 8,this.height * 0 / 8,this.foePieceColor).draw();
-		new Rook(this.width * 7 / 8,this.height * 0 / 8,this.foePieceColor).draw();
-
-		new Pawn(this.width * 0 / 8,this.height * 1 / 8,this.foePieceColor).draw();
-		new Pawn(this.width * 1 / 8,this.height * 1 / 8,this.foePieceColor).draw();
-		new Pawn(this.width * 2 / 8,this.height * 1 / 8,this.foePieceColor).draw();
-		new Pawn(this.width * 3 / 8,this.height * 1 / 8,this.foePieceColor).draw();
-		new Pawn(this.width * 4 / 8,this.height * 1 / 8,this.foePieceColor).draw();
-		new Pawn(this.width * 5 / 8,this.height * 1 / 8,this.foePieceColor).draw();
-		new Pawn(this.width * 6 / 8,this.height * 1 / 8,this.foePieceColor).draw();
-		new Pawn(this.width * 7 / 8,this.height * 1 / 8,this.foePieceColor).draw();
 		
-
-		// DRAW MY PIECES
-		new Rook(this.width * 0 / 8,this.height * 7 / 8,this.myPieceColor).draw();
-		new Knight(this.width * 1 / 8,this.height * 7 / 8,this.myPieceColor).draw();
-		new Bishop(this.width * 2 / 8,this.height * 7 / 8,this.myPieceColor).draw();
-		new Queen(this.width * 3 / 8,this.height * 7 / 8,this.myPieceColor).draw();
-		new King(this.width * 4 / 8,this.height * 7 / 8,this.myPieceColor).draw();
-		new Bishop(this.width * 5 / 8,this.height * 7 / 8,this.myPieceColor).draw();
-		new Knight(this.width * 6 / 8,this.height * 7 / 8,this.myPieceColor).draw();
-		new Rook(this.width * 7 / 8,this.height * 7 / 8,this.myPieceColor).draw();
-
-		new Pawn(this.width * 0 / 8,this.height * 6 / 8,this.myPieceColor).draw();
-		new Pawn(this.width * 1 / 8,this.height * 6 / 8,this.myPieceColor).draw();
-		new Pawn(this.width * 2 / 8,this.height * 6 / 8,this.myPieceColor).draw();
-		new Pawn(this.width * 3 / 8,this.height * 6 / 8,this.myPieceColor).draw();
-		new Pawn(this.width * 4 / 8,this.height * 6 / 8,this.myPieceColor).draw();
-		new Pawn(this.width * 5 / 8,this.height * 6 / 8,this.myPieceColor).draw();
-		new Pawn(this.width * 6 / 8,this.height * 6 / 8,this.myPieceColor).draw();
-		new Pawn(this.width * 7 / 8,this.height * 6 / 8,this.myPieceColor).draw();
+		this.foePieceSet.draw();
+		this.myPieceSet.draw();
 		
 	}
 
