@@ -15,5 +15,5 @@ function draw() {
 }
 
 function mousePressed() {
-  console.log(new Piece(mouseX,mouseY,0).getCurrentTile());
+  console.log(board.getTileCoordinatesByPosition(mouseX, mouseY));
 }

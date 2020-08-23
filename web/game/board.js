@@ -7,6 +7,8 @@ class Board {
 		this.myPieceColor = 'black';
 		this.foePieceColor = 'white';
 		
+		this.tiles = [];
+
 		this.foePieceSet = new PieceSet('foe', this.foePieceColor);
 		this.myPieceSet = new PieceSet('me', this.myPieceColor);
 	}
@@ -42,15 +44,16 @@ class Board {
 
 		
 
-		for (let i = 0; i < width; i += width/8) {
-			for (let j = 0; j < height; j += height/8) {
+		for (let i = 0, x = 0; i < width; i += width/8, x++) {
+			this.tiles.push([]);
+			for (let j = 0, y = 0; j < height; j += height/8, y++) {
 				if(colored) {
 					fill(125, 135, 150);
 				} else {
 					fill(232, 235, 239);
 				}
-				rect(i, j, width / 8, height/8);
-
+				this.tiles[x].push(new Tile(i, j, colored, x, y))
+				this.tiles[x][y].draw()
 				
 
 				colored = colored ? false : true;
@@ -69,5 +72,19 @@ class Board {
 
 	getBoardSize() { // return width / height
 		return [width, height];
+	}
+
+	getTileCoordinatesByPosition(x, y) {
+		x = x === width ? x-- : x; 
+        y = y === height ? y-- : y;
+
+        let xTile = Math.floor(x/(width/8));
+		let yTile = Math.floor(y/(height/8));
+		
+		if (!!this.tiles[xTile][yTile]) {
+			return this.tiles[xTile][yTile]
+		}
+
+		return null;
 	}
 }

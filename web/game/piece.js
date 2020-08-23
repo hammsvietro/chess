@@ -1,9 +1,10 @@
 class Piece {
-    constructor(x, y, color) {
+    constructor(x, y, color, starterTile) {
         this.x = x;
         this.y = y;
         this.color = color;
         this.dragged = false;
+        this.tile = starterTile;
     }
 
     getCurrentTile() {
@@ -17,5 +18,8 @@ class Piece {
         return [xTile, yTile];
     }
 
+    registerInTile() {
+        this.tile.addPiece(this);
+    }
     
 }

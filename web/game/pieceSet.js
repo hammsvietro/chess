@@ -72,7 +72,6 @@ class PieceSet {
   }
 
   draw() {
-    console.log(this.pawns[0]);
     this.pawns.forEach(pawn => pawn.draw());
     this.rooks.forEach(rook => rook.draw());
     this.knights.forEach(knight => knight.draw());
@@ -80,5 +79,4 @@ class PieceSet {
     this.queen.draw();
     this.king.draw();
   }
-  
 }
