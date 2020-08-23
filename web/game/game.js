@@ -11,9 +11,8 @@ function setup() {
 function draw() {
 
 
-
 }
 
 function mousePressed() {
-  console.log(board.getTileCoordinatesByPosition(mouseX, mouseY));
+  board.handleMouseClick(mouseX, mouseY);
 }
