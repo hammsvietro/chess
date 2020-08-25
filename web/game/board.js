@@ -11,6 +11,7 @@ class Board {
 
 		this.foePieceSet = new PieceSet('foe', this.foePieceColor);
 		this.myPieceSet = new PieceSet('me', this.myPieceColor);
+		this.selectedTile = null;
 	}
 	
 
@@ -142,6 +143,7 @@ class Board {
 			}
 			colored = colored ? false : true;
 		}
+
 		this.placePieces();
 	}
 
@@ -149,6 +151,11 @@ class Board {
 		this.foePieceSet.draw();
 		this.myPieceSet.draw();
 		
+	}
+
+	updatePieces() {
+		this.foePieceSet.draw();
+		this.myPieceSet.draw();
 	}
 
 	getBoardSize() { // return width / height
@@ -170,6 +177,16 @@ class Board {
 	}
 
 	handleMouseClick(mouseX, mouseY){
-		console.log(this.getTileCoordinatesByPosition(mouseX, mouseY));
+		if (mouseButton === RIGHT) {
+			this.selectedTile = null;
+		}
+		
+		if (mouseButton === LEFT && this.selectedTile === null) {
+			this.selectedTile = this.getTileCoordinatesByPosition(mouseX, mouseY);
+		}
+		
+		if (mouseButton === LEFT && this.selectedTile) {
+		this.selectedTile.piece.moveTo(mouseX,mouseY);
+		}
 	}
 }

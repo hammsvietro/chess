@@ -12,5 +12,8 @@ class Pawn extends Piece {
     image(img, xPos, yPos, xSize, ySize);
   }
 
-  
+  moveTo(x, y) {
+    this.x = x;
+    this.y = y;
+  }
 }
