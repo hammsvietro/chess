@@ -15,6 +15,8 @@
 ### Frontend:
 - [x] Create board
 - [x] Define color Scheme
+- [ ] Refactor piece set (use generic Piece array)
+- [ ] Refactor board (add draw logic for background)
 - [ ] Create Utility methods (e.g. getTile(x,y) returning tile corresponding to the coordinates)
 - [ ] Add moves
 - [ ] Validate moves
