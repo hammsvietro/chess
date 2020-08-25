@@ -11,7 +11,6 @@ let blackBishopImg;
 let blackQueenImg;
 let blackKingImg;
 
-
 function preload() {
   whitePawnImg = loadImage('./game/assets/white_pawn.png');
   whiteRookImg = loadImage('./game/assets/white_rook.png');

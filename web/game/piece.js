@@ -1,8 +1,9 @@
 class Piece {
-    constructor(x, y, color) {
+    constructor(x, y, color, image) {
         this.x = x;
         this.y = y;
         this.color = color;
+        this.image = image;
         this.dragged = false;
     }
 
@@ -19,6 +20,16 @@ class Piece {
 
     registerInTile(tile) {
         tile.addPiece(this);
+    }
+
+    draw() {
+        let img = this.image;
+        let xPos = this.x + 4;
+        let yPos = this.y + 2.5;
+        let xSize = tileWidth * 0.9;
+        let ySize = tileHeight * 0.9;
+  
+        image(img, xPos, yPos, xSize, ySize);
     }
     
 }

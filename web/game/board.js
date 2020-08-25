@@ -189,4 +189,12 @@ class Board {
 		this.selectedTile.piece.moveTo(mouseX,mouseY);
 		}
 	}
+
+	draw() {
+		if(colored) {
+			fill(125, 135, 150);
+		} else {
+			fill(232, 235, 239);
+		}
+	}
 }

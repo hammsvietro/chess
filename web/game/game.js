@@ -1,9 +1,11 @@
-let board = new Board(width, height);
+let board;
 
 function setup() {
+  
   smooth();
   const gameCanvas = createCanvas(width, height);
   gameCanvas.id('game-canvas');
+  board = new Board(width, height);
   board.newGame();
   frameRate(45);
   document.getElementById('game-canvas')
@@ -11,6 +13,7 @@ function setup() {
 }
 
 function draw() {
+  clear();
   board.updatePieces();
 
 }
