@@ -4,7 +4,6 @@ class Pawn extends Piece {
   }
   
   moveTo(x, y) {
-    this.x = x;
-    this.y = y;
+    
   }
 }

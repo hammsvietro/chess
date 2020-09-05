@@ -55,7 +55,7 @@ class Board {
 					fill(232, 235, 239);
 				}
 
-				this.tiles[x].push(new Tile(i, j, colored, x, y))
+				this.tiles[x].push(new Tile(i, j, colored))
 				this.tiles[x][y].draw()
 				
 				// LINK TILES TO PIECES
@@ -154,8 +154,13 @@ class Board {
 	}
 
 	updatePieces() {
+		this.drawTiles();
 		this.foePieceSet.draw();
 		this.myPieceSet.draw();
+	}
+
+	drawTiles() {
+		this.tiles.forEach(tileRow => tileRow.forEach(tile => tile.draw()));
 	}
 
 	getBoardSize() { // return width / height
@@ -185,8 +190,9 @@ class Board {
 			this.selectedTile = this.getTileCoordinatesByPosition(mouseX, mouseY);
 		}
 		
-		if (mouseButton === LEFT && this.selectedTile) {
+		else if (mouseButton === LEFT && this.selectedTile) {
 		this.selectedTile.piece.moveTo(mouseX,mouseY);
+		this.selectedTile = null;
 		}
 	}
 

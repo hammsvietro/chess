@@ -7,7 +7,7 @@ function setup() {
   gameCanvas.id('game-canvas');
   board = new Board(width, height);
   board.newGame();
-  frameRate(45);
+  frameRate(20);
   document.getElementById('game-canvas')
     .addEventListener('contextmenu', event => event.preventDefault());
 }
